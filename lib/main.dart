@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MyMoney',
+      title: 'GameSpend',
       initialRoute: '/login',
       routes: {
         '/login': (context) => const SignInScreen(),      // from signin_screen.dart

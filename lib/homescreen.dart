@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
             return Center(
               child: SizedBox(
                 width: contentWidth,
-                child: CustomScrollView(
+                child: CustomScrollView( // ← this already supports mouse cursor scrolling
                   slivers: [
                     // ---------- Top bar ----------
                     SliverToBoxAdapter(
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 3),
                             const Text(
-                              'Here\u2019s your gaming spend overview',
+                              'Here’s your gaming spend overview',
                               style: TextStyle(color: textMuted, fontSize: 12.5),
                             ),
                           ],
@@ -129,14 +129,14 @@ class HomeScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              const Text('This Month\u2019s Gaming Spend',
+                              const Text('This Month’s Gaming Spend',
                                   style: TextStyle(color: textMuted, fontSize: 12.5, fontWeight: FontWeight.w600)),
                               const SizedBox(height: 8),
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: const [
                                   Text(
-                                    '\u20b12,840',
+                                    '₱2,840',
                                     style: TextStyle(
                                       color: white,
                                       fontSize: 34,
@@ -147,7 +147,7 @@ class HomeScreen extends StatelessWidget {
                                   SizedBox(width: 8),
                                   Padding(
                                     padding: EdgeInsets.only(bottom: 6),
-                                    child: Text('/ \u20b14,000 budget',
+                                    child: Text('/ ₱4,000 budget',
                                         style: TextStyle(color: textMuted, fontSize: 13)),
                                   ),
                                 ],
@@ -171,7 +171,7 @@ class HomeScreen extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 8),
-                              const Text('71% of budget used \u00b7 \u20b11,160 left',
+                              const Text('71% of budget used · ₱1,160 left',
                                   style: TextStyle(color: neonCyan, fontSize: 11.5, fontWeight: FontWeight.w600)),
                             ],
                           ),
@@ -192,7 +192,7 @@ class HomeScreen extends StatelessWidget {
                           childAspectRatio: 1.05,
                           children: [
                             _statCard(Icons.videogame_asset_rounded, '14', 'Games Bought'),
-                            _statCard(Icons.diamond_outlined, '\u20b1620', 'In-Game Items'),
+                            _statCard(Icons.diamond_outlined, '₱620', 'In-Game Items'),
                             _statCard(Icons.subscriptions_outlined, '3', 'Subscriptions'),
                           ],
                         ),
@@ -276,16 +276,16 @@ class HomeScreen extends StatelessWidget {
                               child: Column(
                                 children: [
                                   _transactionTile(Icons.sports_esports_rounded, 'Starlight Odyssey',
-                                      'Steam \u00b7 Today', 999, neonBlue),
+                                      'Steam · Today', 999, neonBlue),
                                   _divider(),
-                                  _transactionTile(Icons.diamond_outlined, 'Battle Pass \u2013 Season 9',
-                                      'In-game purchase \u00b7 Yesterday', 450, neonCyan),
+                                  _transactionTile(Icons.diamond_outlined, 'Battle Pass – Season 9',
+                                      'In-game purchase · Yesterday', 450, neonCyan),
                                   _divider(),
                                   _transactionTile(Icons.subscriptions_outlined, 'Game Pass Ultimate',
-                                      'Subscription \u00b7 3 days ago', 549, success),
+                                      'Subscription · 3 days ago', 549, success),
                                   _divider(),
                                   _transactionTile(Icons.headset_mic_outlined, 'Wireless Headset',
-                                      'Gear \u00b7 5 days ago', 2499, danger),
+                                      'Gear · 5 days ago', 2499, danger),
                                 ],
                               ),
                             ),
@@ -433,7 +433,7 @@ class HomeScreen extends StatelessWidget {
                         style: const TextStyle(color: white, fontSize: 13, fontWeight: FontWeight.w600),
                         overflow: TextOverflow.ellipsis),
                   ),
-                  Text('\u20b1${amount.toStringAsFixed(0)}',
+                  Text('₱${amount.toStringAsFixed(0)}',
                       style: const TextStyle(color: white, fontSize: 13, fontWeight: FontWeight.w700)),
                 ],
               ),
@@ -469,7 +469,7 @@ class HomeScreen extends StatelessWidget {
           style: const TextStyle(color: white, fontSize: 13.5, fontWeight: FontWeight.w600),
           overflow: TextOverflow.ellipsis),
       subtitle: Text(subtitle, style: const TextStyle(color: textMuted, fontSize: 11.5)),
-      trailing: Text('-\u20b1${amount.toStringAsFixed(0)}',
+      trailing: Text('-₱${amount.toStringAsFixed(0)}',
           style: const TextStyle(color: danger, fontSize: 13.5, fontWeight: FontWeight.w700)),
       dense: true,
     );
