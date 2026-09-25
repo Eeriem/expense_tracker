@@ -27,7 +27,12 @@ class _SignInScreenState extends State<SignInScreen> {
 
   void _login() {
     if (_formKey.currentState!.validate()) {
-      Navigator.pushReplacementNamed(context, '/home');
+      final username = _emailController.text.trim();
+      Navigator.pushReplacementNamed(
+        context,
+        '/home',
+        arguments: {'username': username},
+      );
     }
   }
 
