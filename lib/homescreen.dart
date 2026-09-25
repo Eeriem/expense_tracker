@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
             return Center(
               child: SizedBox(
                 width: contentWidth,
-                child: CustomScrollView( // ← this already supports mouse cursor scrolling
+                child: CustomScrollView(
                   slivers: [
                     // ---------- Top bar ----------
                     SliverToBoxAdapter(
