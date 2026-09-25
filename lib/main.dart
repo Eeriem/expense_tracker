@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'signin_screen.dart';      // ← your Sign In file
-import 'signup_screen.dart';      // ← your Sign Up file (note the spelling)
-import 'homescreen.dart';         // ← your Home file
+import 'signin_screen.dart';
+import 'signup_screen.dart';      
+import 'homescreen.dart';
 
 void main() {
   runApp(const MyApp());
