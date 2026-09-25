@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signin_screen.dart';
-import 'signup_screen.dart';      
+import 'signup_screen.dart';
 import 'homescreen.dart';
 
 void main() {
