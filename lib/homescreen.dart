@@ -72,7 +72,11 @@ class HomeScreen extends StatelessWidget {
                             ),
                             _iconButton(Icons.notifications_none_rounded),
                             const SizedBox(width: 8),
-                            _iconButton(Icons.person_outline_rounded),
+                            _iconButton(
+                              Icons.logout_rounded,
+                              color: danger,
+                              onTap: () => _confirmLogout(context),
+                            ),
                           ],
                         ),
                       ),
@@ -338,7 +342,7 @@ class HomeScreen extends StatelessWidget {
     return 'Good evening';
   }
 
-  static Widget _iconButton(IconData icon, {VoidCallback? onTap}) {
+  static Widget _iconButton(IconData icon, {Color color = white, VoidCallback? onTap}) {
     return InkWell(
       borderRadius: BorderRadius.circular(20),
       onTap: onTap ?? () {},
@@ -347,9 +351,38 @@ class HomeScreen extends StatelessWidget {
         height: 36,
         alignment: Alignment.center,
         decoration: const BoxDecoration(color: surface, shape: BoxShape.circle),
-        child: Icon(icon, color: white, size: 19),
+        child: Icon(icon, color: color, size: 19),
       ),
     );
+  }
+
+  static Future<void> _confirmLogout(BuildContext context) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        backgroundColor: surface,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        title: const Text('Log out?', style: TextStyle(color: white, fontWeight: FontWeight.bold)),
+        content: const Text(
+          'You\u2019ll need to sign in again to see your gaming expenses.',
+          style: TextStyle(color: textMuted),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, false),
+            child: const Text('Cancel', style: TextStyle(color: textMuted)),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, true),
+            child: const Text('Log out', style: TextStyle(color: danger, fontWeight: FontWeight.bold)),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed == true && context.mounted) {
+      Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
+    }
   }
 
   static Widget _sectionTitle(String title) {
